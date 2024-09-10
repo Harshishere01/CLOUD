@@ -1,4 +1,4 @@
-# cloud
+# AWS
 creating vm by using aws 
 1. make a aws account
 2. search EC2
