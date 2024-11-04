@@ -305,6 +305,56 @@ http://server_ip:8001/api/v1/namespaces/kubernetes-dashboard/services/http:kuber
 
 ![minik8s](https://github.com/user-attachments/assets/f92e7dca-a8c0-4c8e-aae8-4a0c88c5443e)
 
+# 4.  OPENSTACK ON AWS
+
+
+
+```
+sudo snap install openstack --channel 2024.1/beta
+```
+**Begin by installing the openstack snap**
+
+
+
+```
+sunbeam prepare-node-script
+```
+**Sunbeam can generate a script to ensure that the machine has all of the required dependencies installed and is configured correctly for use in OpenStack**
+
+
+```
+sunbeam prepare-node-script | bash -x && newgrp snap_daemon
+```
+**The script will ensure some software requirements are satisfied on the host**
+
+
+
+```
+sunbeam cluster bootstrap --accept-defaults
+```
+**Bootstrap the cloud**
+
+
+```
+sunbeam configure --accept-defaults --openrc demo-openrc
+```
+**configure the deployed cloud using the configure command**
+
+
+```
+sunbeam launch ubuntu --name test
+```
+**Launching a VM on openstack**
+
+
+
+
+
+
+# VPC
+
+GO TO VPC ND CREATE VPC THEN CREATE 4 SUBNETS - 2 PVT 2 PUBLIC WITH ADDRESS 10.0.1.0/24 , 10.0.2.0/24 , 10.0.3.0/24 , 10.0.4.0/24 THEN CREATE INTERNET GATEWAY AND CONNECT VPC TO IT AND THEN CREATE VGW AND CONNECT(ATTACH) VPC TO IT. NOW GO TO ROUTE TABLES AND CREATE 2 ROUTE TABLE - R1-IGW , R2-VGW AND EDIT ROUTES WITH 0.0.0.0/0 AND 192.168.0.0/16 RESPECTIVELY AND TARGET IGW AND VGW RESPECTIVELY
+
 
 
 
